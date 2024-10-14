@@ -3,8 +3,15 @@ const path = require("path");
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, "./src/assets");
+    cb(null, "/tmp");
   },
+  // filename: (req, file, cb) => {
+  //   const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
+  //   cb(
+  //     null,
+  //     `${file.fieldname}-${uniqueSuffix}${path.extname(file.originalname)}`
+  //   );
+  // },
   filename: (req, file, cb) => {
     const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
     cb(
